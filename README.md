@@ -3,6 +3,8 @@
 ## Overview
 This code is designed to automate the process of checking multiple students’ GitLab repositories for certain criteria (such as required files, tests, or CI/CD results). It works by reading a list of participants from a file, constructing their repository URLs, and then invoking a separate `check_repo.py` script to analyze each repository.
 
+It can evaluate students' work by reading the commit history and the CI/CD pipeline pass situation. It can download the project and  `cargo run` them to do the running locally in batch. To get started, please go to grading-hw2.ipynb. (since in 2024 Fall, the HW1 in CSE262 has no CI/CD pipeline yet while the HW2 and later HW did.)
+
 The main idea is:
 1. Read participant identifiers from `participants.txt`.
 2. For each participant, form the appropriate GitLab repository URL.
@@ -43,6 +45,7 @@ This ensures that one problematic repository does not halt the entire batch proc
 1. **Prepare the Participants File:**  
    Create a file named `participants.txt` and list one participant (username or email prefix) per line. For example:  
    ```
+   soz223
    abc123
    xyz789
    ...

@@ -5,7 +5,20 @@ from urllib.parse import urlparse
 from collections import defaultdict
 from datetime import datetime
 
-from datetime import datetime
+# PRIVATE_TOKEN = os.environ.get('GITLAB_PRIVATE_TOKEN')
+# if not PRIVATE_TOKEN:
+#     raise ValueError("GitLab private token not found. Set the GITLAB_PRIVATE_TOKEN environment variable.")
+
+
+
+# Define required files
+REQUIRED_FILES = []
+
+# Replace with your GitLab URL and ensure the private token is set as an environment variable
+GITLAB_URL = 'http://gitlab.cse.lehigh.edu/'
+PRIVATE_TOKEN = 'AQvzxMwjZfbG1u4TSexu'
+
+
 
 def list_commit_date_range(project, ref='main', start_date_str='2024-08-15'):
     try:
@@ -59,12 +72,6 @@ def filter_commits_by_date_range(commits, start_date_str, end_date_str):
         return []
     
 
-# Define required files
-REQUIRED_FILES = ['README.md']
-
-# Replace with your GitLab URL and ensure the private token is set as an environment variable
-GITLAB_URL = 'http://gitlab.cse.lehigh.edu/'
-PRIVATE_TOKEN = 'AQvzxMwjZfbG1u4TSexu'
 
 if not PRIVATE_TOKEN:
     print("Error: GITLAB_PRIVATE_TOKEN environment variable not set.")
@@ -119,33 +126,6 @@ def count_tests_in_lex_rs(project, ref='main', file_path='tests/lex.rs'):
         print(f"An error occurred while counting tests in '{file_path}': {e}")
         return 0
 
-
-# Function to check how many tests passed in the last pipeline
-def count_passed_tests_in_ci(project, ref='main'):
-    try:
-        # Get the latest pipeline
-        pipelines = project.pipelines.list(ref=ref, all=True)
-        if not pipelines:
-            print(f"No CI/CD pipelines found for branch '{ref}'.")
-            return 0
-        
-        # Get the latest pipeline's jobs
-        latest_pipeline = pipelines[0]
-        jobs = latest_pipeline.jobs.list()
-
-        # Count the number of passed test jobs (using status 'success' and assuming test-related jobs have 'test' in their name)
-        passed_tests = 0
-        for job in jobs:
-            if 'test' in job.name.lower() and job.status == 'ok':
-                passed_tests += 1
-
-        return passed_tests
-    except gitlab.exceptions.GitlabGetError as e:
-        print(f"Failed to retrieve pipelines or jobs: {e}")
-        return 0
-    except Exception as e:
-        print(f"An error occurred while counting passed tests in CI: {e}")
-        return 0
 
 
 
@@ -486,16 +466,6 @@ def main():
     print(f"\nContents of the repository '{project.name}':")
     list_repo_contents(project, ref=default_branch)
 
-    # Count the number of tests in 'tests/lex.rs'
-    test_count = count_tests_in_lex_rs(project, ref=default_branch)
-
-    print(f"\nNumber of tests in 'tests/lex.rs': {test_count}")
-
-    # Check how many tests passed in the last pipeline
-    passed_tests = count_passed_tests_in_ci(project, ref=default_branch)
-
-    print(f"Number of passed test jobs in the latest CI/CD pipeline: {passed_tests}")
-    
 
     # result_folder = './cicd/' + {type_string}-{homework_number}
     parsed_url = urlparse(student_repo_url)
@@ -549,11 +519,11 @@ def main():
     # List commit date range after 2024-08-15
     filtered_commits = list_commit_date_range(project, ref=default_branch, start_date_str='2024-08-15')
 
-    # If filtered commits exist, filter them further by a specific date range
-    if filtered_commits:
-        start_date_str = '2024-09-01'
-        end_date_str = '2024-09-30'
-        filter_commits_by_date_range(filtered_commits, start_date_str, end_date_str)
+    # # If filtered commits exist, filter them further by a specific date range
+    # if filtered_commits:
+    #     start_date_str = '2024-09-01'
+    #     end_date_str = '2024-09-30'
+    #     filter_commits_by_date_range(filtered_commits, start_date_str, end_date_str)
     
 
     # Check CI/CD status
