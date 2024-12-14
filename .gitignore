@@ -2,7 +2,7 @@
 cicd/
 
 # Ignore specific files
-participants.txt
+participants_backup.txt
 participants_error.txt
 
 # Ignore backup or temporary files
