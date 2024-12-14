@@ -1,0 +1,10 @@
+# Ignore the entire cicd folder
+cicd/
+
+# Ignore specific files
+participants.txt
+participants_error.txt
+
+# Ignore backup or temporary files
+*.bak
+*.tmp
