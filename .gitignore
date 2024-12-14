@@ -1,5 +1,6 @@
 # Ignore the entire cicd folder
 cicd/
+repo/
 
 # Ignore specific files
 participants_backup.txt
