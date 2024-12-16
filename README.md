@@ -177,4 +177,6 @@ conda list
 
 By following the steps above, you can streamline the process of validating multiple students’ homework submissions against a standard set of repository requirements.
 
+Contact: soz223@lehigh.edu
+
 ---
