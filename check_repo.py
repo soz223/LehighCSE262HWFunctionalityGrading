@@ -16,7 +16,7 @@ REQUIRED_FILES = []
 
 # Replace with your GitLab URL and ensure the private token is set as an environment variable
 GITLAB_URL = 'http://gitlab.cse.lehigh.edu/'
-PRIVATE_TOKEN = 'AQvzxMwjZfbG1u4TSexu'
+PRIVATE_TOKEN = 'YOUR_TOKEN_AT_HERE' # put your token here. You can get it from your gitlab account. https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
 
 
 
