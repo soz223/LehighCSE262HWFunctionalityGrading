@@ -129,7 +129,7 @@ conda list
      Open `check_repo.py` and locate the token configuration section. Insert your token as shown below:
 
      ```python
-     PRIVATE_TOKEN = 'AQvzxMwjZfbG1u4TSexu'  # Put your token here. You can get it from your GitLab account: https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
+     PRIVATE_TOKEN = ''  # Put your token here. You can get it from your GitLab account: https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
      ```
 
      **Security Best Practices:**
