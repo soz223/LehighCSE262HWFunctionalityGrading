@@ -1,0 +1,11 @@
+prefix=/workspaces/LehighCSE262HWFunctionalityGrading/venv
+exec_prefix=/workspaces/LehighCSE262HWFunctionalityGrading/venv
+libdir=/workspaces/LehighCSE262HWFunctionalityGrading/venv/lib
+includedir=/workspaces/LehighCSE262HWFunctionalityGrading/venv/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.38.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid

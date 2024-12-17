@@ -138,7 +138,7 @@ conda list
      * **Using Environment Variables:**
        * **Set the Environment Variable:**
          ```bash
-         export GITLAB_PRIVATE_TOKEN='AQvzxMwjZfbG1u4TSexu'
+         export GITLAB_PRIVATE_TOKEN=''
          ```
        * **Modify `check_repo.py` to Use the Environment Variable:**
          ```python
