@@ -153,8 +153,6 @@ conda list
    ```bash
    python check_repo.py
    ```
-
-   *(Assuming the above code is saved in `check_multiple_repos.py`)*
 5. **Examine Output:**
    The script will output the status for each participant. If `check_repo.py` encounters an error for a participant’s repository, you’ll see an error message. Otherwise, you’ll see a success indicator (return code `0`).
 
