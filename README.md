@@ -1,4 +1,3 @@
-
 # README
 
 ## Overview
@@ -152,7 +151,7 @@ conda list
    From the command line, simply run:
 
    ```bash
-   python check_multiple_repos.py
+   python check_repo.py
    ```
 
    *(Assuming the above code is saved in `check_multiple_repos.py`)*
